@@ -4,7 +4,7 @@ A dashboard for macroeconomic and stock market data built with Python and Dash. 
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the required dependencies to run this web dashboard.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the required dependencies to run this web dashboard on your local machine.
 
 ```bash
 pip install -r requirements.txt
@@ -12,11 +12,15 @@ pip install -r requirements.txt
 
 ## Usage
 
+Enter into the main directory in your terminal and run the following command.
+
 ```
 python main.py
 ```
 
 Open up http://localhost:8050/ on your local browser to view the dashboard.
+
+Otherwise, you can visit the dashboard at https://economic-dashboard.onrender.com.
 
 ## Contributing
 
