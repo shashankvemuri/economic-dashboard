@@ -62,6 +62,7 @@ m2_df = pd.read_csv(f"https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%2
 
 ## Create Dash App
 app = Dash(__name__, external_stylesheets=[dbc.themes.LUX])
+server = app.server
 
 indices_graph = dcc.Graph(id="indices-time-series-chart")
 indices_dropdown = dcc.Dropdown(
