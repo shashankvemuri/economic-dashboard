@@ -6,3 +6,4 @@ plotly==5.6.0
 yfinance==0.1.74
 gunicorn
 dash-tools
+openpyxl
