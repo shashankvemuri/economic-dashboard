@@ -164,15 +164,15 @@ def update_graphs(ticker):
     elif ticker == "Russell 2000":
         indices_df = pdr.get_data_yahoo("^RUT", start, end)
     
-    indices_fig = px.line(indices_df, x=indices_df.index, y=indices_df["Adj Close"], title=f"{ticker} Chart", labels={"Adj Close": f"{ticker} Close"}).update_layout(title_x=0.5)#, plot_bgcolor=colors["background"], paper_bgcolor=colors["background"], font_color=colors["text"])
-    vix_fig = px.line(vix_df, x=vix_df.index, y=vix_df["Adj Close"], title=f"VIX Chart", labels={"Adj Close": f"{ticker} Close"}).update_layout(title_x=0.5)#, plot_bgcolor=colors["background"], paper_bgcolor=colors["background"], font_color=colors["text"])
-    naaim_fig = px.line(naaim_df, x=naaim_df.index, y=naaim_df["NAAIM Number"], title="NAAIM Exposure Index").update_layout(title_x=0.5)#, plot_bgcolor=colors["background"], paper_bgcolor=colors["background"], font_color=colors["text"])
-    unemp_fig = px.line(unemp_df, title="Unemployment %", labels={"index": "Date"}).update_layout(title_x=0.5, showlegend=False)#.update_layout(plot_bgcolor=colors["background"], paper_bgcolor=colors["background"], font_color=colors["text"])
-    inflation_fig = px.line(inflation_df, title="Inflation %", labels={"Inflation %" : "CPI Print"}).update_layout(title_x=0.5, showlegend=False)#.update_layout(plot_bgcolor=colors["background"], paper_bgcolor=colors["background"], font_color=colors["text"])
-    savings_fig = px.line(savings_df, x=savings_df.index, y=savings_df["PSAVERT"], title="Personal Savings Rate", labels={"PSAVERT" : "Savings %", "DATE": "Date"}).update_layout(title_x=0.5)#, plot_bgcolor=colors["background"], paper_bgcolor=colors["background"], font_color=colors["text"])
-    m2_fig = px.line(m2_df, title="M2 Money Supply", labels={"value" : "Billions of Dollars", "DATE": "Date"}).update_layout(title_x=0.5, showlegend=False)#.update_layout(plot_bgcolor=colors["background"], paper_bgcolor=colors["background"], font_color=colors["text"])
-    gdp_fig = px.line(gdp_df, x=gdp_df.index, y=gdp_df["GDP"], title="Gross Domestic Product", labels={"GDP" : "GDP (trillions)", "index": "Date"}).update_layout(title_x=0.5)#, plot_bgcolor=colors["background"], paper_bgcolor=colors["background"], font_color=colors["text"])
-    mortgage_fig = px.line(mortgage_df, x=mortgage_df.index, y=[mortgage_df["30yr FRM"], mortgage_df["15yr FRM"]], title="Mortgage Rate %", labels={"value" : "Rate %"}).update_layout(title_x=0.5)#, plot_bgcolor=colors["background"], paper_bgcolor=colors["background"], font_color=colors["text"])
+    indices_fig = px.line(indices_df, x=indices_df.index, y=indices_df["Adj Close"], title=f"{ticker} Chart", labels={"Adj Close": f"{ticker} Close"}).update_layout(title_x=0.5)
+    vix_fig = px.line(vix_df, x=vix_df.index, y=vix_df["Adj Close"], title=f"VIX Chart", labels={"Adj Close": f"{ticker} Close"}).update_layout(title_x=0.5)
+    naaim_fig = px.line(naaim_df, x=naaim_df.index, y=naaim_df["NAAIM Number"], title="NAAIM Exposure Index").update_layout(title_x=0.5)
+    unemp_fig = px.line(unemp_df, title="Unemployment %", labels={"value": "Unemployment %","index": "Date"}).update_layout(title_x=0.5, showlegend=False)
+    inflation_fig = px.line(inflation_df, title="Inflation %", labels={"value" : "CPI Print"}).update_layout(title_x=0.5, showlegend=False)
+    savings_fig = px.line(savings_df, x=savings_df.index, y=savings_df["PSAVERT"], title="Personal Savings Rate", labels={"PSAVERT" : "Savings %", "DATE": "Date"}).update_layout(title_x=0.5)
+    m2_fig = px.line(m2_df, title="M2 Money Supply", labels={"value" : "Billions of Dollars", "DATE": "Date"}).update_layout(title_x=0.5, showlegend=False)
+    gdp_fig = px.line(gdp_df, x=gdp_df.index, y=gdp_df["GDP"], title="Gross Domestic Product", labels={"GDP" : "GDP (trillions)", "index": "Date"}).update_layout(title_x=0.5)
+    mortgage_fig = px.line(mortgage_df, x=mortgage_df.index, y=[mortgage_df["30yr FRM"], mortgage_df["15yr FRM"]], title="Mortgage Rate %", labels={"value" : "Rate %"}).update_layout(title_x=0.5)
     return indices_fig, vix_fig, naaim_fig, unemp_fig, inflation_fig, savings_fig, m2_fig, gdp_fig, mortgage_fig
 
 # Run app
