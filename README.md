@@ -16,7 +16,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Open up http://127.0.0.1:8054/ on your local browser to view the dashboard.
+Open up http://localhost:8050/ on your local browser to view the dashboard.
 
 ## Contributing
 
