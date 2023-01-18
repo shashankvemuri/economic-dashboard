@@ -54,7 +54,11 @@ vix_df = pdr.get_data_yahoo("^VIX", start, end)
 today = datetime.date.today()
 offset = (today.weekday() - 2) % 7
 naaim_date = str(today - datetime.timedelta(days=offset))
-naaim_df = pd.read_excel(f"https://www.naaim.org/wp-content/uploads/{naaim_date[:4]}/{naaim_date[5:7]}/USE_Data-since-Inception_{naaim_date}.xlsx", index_col=0).iloc[::-1].tail(104)
+try:
+    naaim_df = pd.read_excel(f"https://www.naaim.org/wp-content/uploads/{naaim_date[:4]}/{naaim_date[5:7]}/USE_Data-since-Inception_{naaim_date}.xlsx", index_col=0).iloc[::-1].tail(104)
+except:
+    naaim_date = naaim_date - datetime.timedelta(days=7)
+    naaim_df = pd.read_excel(f"https://www.naaim.org/wp-content/uploads/{naaim_date[:4]}/{naaim_date[5:7]}/USE_Data-since-Inception_{naaim_date}.xlsx", index_col=0).iloc[::-1].tail(104)
 
 # US Personal Savings Rate
 savings_df = pd.read_csv(f"https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1168&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=PSAVERT&scale=left&cosd=1959-01-01&coed=2022-11-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date={today}&revision_date={today}&nd=1959-01-01", index_col=0).tail(100)
