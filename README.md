@@ -15,7 +15,7 @@ pip install -r requirements.txt
 Enter into the main directory in your terminal and run the following command.
 
 ```
-python main.py
+python app.py
 ```
 
 Open up http://localhost:8050/ on your local browser to view the dashboard.
