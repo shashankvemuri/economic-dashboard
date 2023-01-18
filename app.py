@@ -51,13 +51,15 @@ mortgage_df = mortgage_df.set_index('Date').drop(columns=['30yr fees', '15yr fee
 vix_df = pdr.get_data_yahoo("^VIX", start, end)
 
 # NAAIM
-today = datetime.date.today()
-offset = (today.weekday() - 2) % 7
-naaim_date = str(today - datetime.timedelta(days=offset))
 try:
+    today = datetime.date.today()
+    offset = (today.weekday() - 2) % 7
+    naaim_date = str(today - datetime.timedelta(days=offset))
     naaim_df = pd.read_excel(f"https://www.naaim.org/wp-content/uploads/{naaim_date[:4]}/{naaim_date[5:7]}/USE_Data-since-Inception_{naaim_date}.xlsx", index_col=0).iloc[::-1].tail(104)
 except:
-    naaim_date = naaim_date - datetime.timedelta(days=7)
+    today = datetime.date.today()
+    offset = (today.weekday() - 2) % 7
+    naaim_date = str(today - datetime.timedelta(days=(offset+7)))
     naaim_df = pd.read_excel(f"https://www.naaim.org/wp-content/uploads/{naaim_date[:4]}/{naaim_date[5:7]}/USE_Data-since-Inception_{naaim_date}.xlsx", index_col=0).iloc[::-1].tail(104)
 
 # US Personal Savings Rate
